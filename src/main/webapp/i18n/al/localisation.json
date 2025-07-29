@@ -1,0 +1,25 @@
+{
+  "senegalEmploiApp": {
+    "localisation": {
+      "home": {
+        "title": "Localisations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Krijo një të ri Localisation",
+        "createOrEditLabel": "Krijo ose përpuno një Localisation",
+        "notFound": "No Localisations found"
+      },
+      "created": "Një Localisation i ri u krijua me identifikues {{ param }}",
+      "updated": "Një Localisation u përpunua me identifikues {{ param }}",
+      "deleted": "Një Localisation u fshi me identifikues {{ param }}",
+      "delete": {
+        "question": "Jeni i sigurtë që doni të fshini Localisation {{ id }}?"
+      },
+      "detail": {
+        "title": "Localisation"
+      },
+      "id": "ID",
+      "region": "Region",
+      "departement": "Departement"
+    }
+  }
+}

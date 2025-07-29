@@ -1,0 +1,24 @@
+{
+  "senegalEmploiApp": {
+    "typeContrat": {
+      "home": {
+        "title": "Type Contrats",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Krijo një të ri Type Contrat",
+        "createOrEditLabel": "Krijo ose përpuno një Type Contrat",
+        "notFound": "No Type Contrats found"
+      },
+      "created": "Një Type Contrat i ri u krijua me identifikues {{ param }}",
+      "updated": "Një Type Contrat u përpunua me identifikues {{ param }}",
+      "deleted": "Një Type Contrat u fshi me identifikues {{ param }}",
+      "delete": {
+        "question": "Jeni i sigurtë që doni të fshini Type Contrat {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Contrat"
+      },
+      "id": "ID",
+      "libelle": "Libelle"
+    }
+  }
+}

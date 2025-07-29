@@ -1,0 +1,27 @@
+{
+  "senegalEmploiApp": {
+    "candidat": {
+      "home": {
+        "title": "Candidats",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Krijo një të ri Candidat",
+        "createOrEditLabel": "Krijo ose përpuno një Candidat",
+        "notFound": "No Candidats found"
+      },
+      "created": "Një Candidat i ri u krijua me identifikues {{ param }}",
+      "updated": "Një Candidat u përpunua me identifikues {{ param }}",
+      "deleted": "Një Candidat u fshi me identifikues {{ param }}",
+      "delete": {
+        "question": "Jeni i sigurtë që doni të fshini Candidat {{ id }}?"
+      },
+      "detail": {
+        "title": "Candidat"
+      },
+      "id": "ID",
+      "cv": "Cv",
+      "telephone": "Telephone",
+      "adresse": "Adresse",
+      "utilisateur": "Utilisateur"
+    }
+  }
+}

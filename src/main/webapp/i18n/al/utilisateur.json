@@ -1,0 +1,30 @@
+{
+  "senegalEmploiApp": {
+    "utilisateur": {
+      "home": {
+        "title": "Utilisateurs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Krijo një të ri Utilisateur",
+        "createOrEditLabel": "Krijo ose përpuno një Utilisateur",
+        "notFound": "No Utilisateurs found"
+      },
+      "created": "Një Utilisateur i ri u krijua me identifikues {{ param }}",
+      "updated": "Një Utilisateur u përpunua me identifikues {{ param }}",
+      "deleted": "Një Utilisateur u fshi me identifikues {{ param }}",
+      "delete": {
+        "question": "Jeni i sigurtë që doni të fshini Utilisateur {{ id }}?"
+      },
+      "detail": {
+        "title": "Utilisateur"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "email": "Email",
+      "motDePasse": "Mot De Passe",
+      "role": "Role",
+      "candidat": "Candidat",
+      "recruteur": "Recruteur"
+    }
+  }
+}

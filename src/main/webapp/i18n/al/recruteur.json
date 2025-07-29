@@ -1,0 +1,26 @@
+{
+  "senegalEmploiApp": {
+    "recruteur": {
+      "home": {
+        "title": "Recruteurs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Krijo një të ri Recruteur",
+        "createOrEditLabel": "Krijo ose përpuno një Recruteur",
+        "notFound": "No Recruteurs found"
+      },
+      "created": "Një Recruteur i ri u krijua me identifikues {{ param }}",
+      "updated": "Një Recruteur u përpunua me identifikues {{ param }}",
+      "deleted": "Një Recruteur u fshi me identifikues {{ param }}",
+      "delete": {
+        "question": "Jeni i sigurtë që doni të fshini Recruteur {{ id }}?"
+      },
+      "detail": {
+        "title": "Recruteur"
+      },
+      "id": "ID",
+      "entreprise": "Entreprise",
+      "secteur": "Secteur",
+      "utilisateur": "Utilisateur"
+    }
+  }
+}

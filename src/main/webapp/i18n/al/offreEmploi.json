@@ -1,0 +1,31 @@
+{
+  "senegalEmploiApp": {
+    "offreEmploi": {
+      "home": {
+        "title": "Offre Emplois",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Krijo një të ri Offre Emploi",
+        "createOrEditLabel": "Krijo ose përpuno një Offre Emploi",
+        "notFound": "No Offre Emplois found"
+      },
+      "created": "Një Offre Emploi i ri u krijua me identifikues {{ param }}",
+      "updated": "Një Offre Emploi u përpunua me identifikues {{ param }}",
+      "deleted": "Një Offre Emploi u fshi me identifikues {{ param }}",
+      "delete": {
+        "question": "Jeni i sigurtë që doni të fshini Offre Emploi {{ id }}?"
+      },
+      "detail": {
+        "title": "Offre Emploi"
+      },
+      "id": "ID",
+      "titre": "Titre",
+      "description": "Description",
+      "remuneration": "Remuneration",
+      "datePublication": "Date Publication",
+      "recruteur": "Recruteur",
+      "typeContrat": "Type Contrat",
+      "poste": "Poste",
+      "localisation": "Localisation"
+    }
+  }
+}

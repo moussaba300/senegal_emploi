@@ -1,0 +1,72 @@
+// ==========================================
+// JDL - Plateforme de Recherche d'Emploi
+// ==========================================
+
+entity Utilisateur {
+  nom String required,
+  prenom String required,
+  email String required,
+  motDePasse String required,
+  role String required
+}
+
+entity Candidat {
+  cv String,
+  telephone String,
+  adresse String
+}
+
+entity Recruteur {
+  entreprise String,
+  secteur String
+}
+
+entity TypeContrat {
+  libelle String required
+}
+
+entity Poste {
+  nom String required
+}
+
+entity Localisation {
+  region String required,
+  departement String required
+}
+
+entity OffreEmploi {
+  titre String required,
+  description String required,
+  remuneration Double,
+  datePublication Instant
+}
+
+entity Candidature {
+  dateDepot Instant,
+  statut String
+}
+
+// =====================
+// Relations
+// =====================
+
+relationship OneToOne {
+  Candidat{utilisateur} to Utilisateur
+  Recruteur{utilisateur} to Utilisateur
+}
+
+relationship ManyToOne {
+  OffreEmploi{recruteur} to Recruteur,
+  OffreEmploi{typeContrat} to TypeContrat,
+  OffreEmploi{poste} to Poste,
+  OffreEmploi{localisation} to Localisation,
+  Candidature{offre} to OffreEmploi,
+  Candidature{candidat} to Candidat
+}
+
+// =====================
+// DTO, Service, Pagination
+// =====================
+dto * with mapstruct
+service all with serviceClass
+paginate all with pagination

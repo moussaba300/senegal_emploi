@@ -1,0 +1,24 @@
+{
+  "senegalEmploiApp": {
+    "poste": {
+      "home": {
+        "title": "Postes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Krijo një të ri Poste",
+        "createOrEditLabel": "Krijo ose përpuno një Poste",
+        "notFound": "No Postes found"
+      },
+      "created": "Një Poste i ri u krijua me identifikues {{ param }}",
+      "updated": "Një Poste u përpunua me identifikues {{ param }}",
+      "deleted": "Një Poste u fshi me identifikues {{ param }}",
+      "delete": {
+        "question": "Jeni i sigurtë që doni të fshini Poste {{ id }}?"
+      },
+      "detail": {
+        "title": "Poste"
+      },
+      "id": "ID",
+      "nom": "Nom"
+    }
+  }
+}

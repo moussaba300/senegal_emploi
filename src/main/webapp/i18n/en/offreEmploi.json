@@ -1,0 +1,31 @@
+{
+  "senegalEmploiApp": {
+    "offreEmploi": {
+      "home": {
+        "title": "Offre Emplois",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Offre Emploi",
+        "createOrEditLabel": "Create or edit a Offre Emploi",
+        "notFound": "No Offre Emplois found"
+      },
+      "created": "A new Offre Emploi is created with identifier {{ param }}",
+      "updated": "A Offre Emploi is updated with identifier {{ param }}",
+      "deleted": "A Offre Emploi is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Offre Emploi {{ id }}?"
+      },
+      "detail": {
+        "title": "Offre Emploi"
+      },
+      "id": "ID",
+      "titre": "Titre",
+      "description": "Description",
+      "remuneration": "Remuneration",
+      "datePublication": "Date Publication",
+      "recruteur": "Recruteur",
+      "typeContrat": "Type Contrat",
+      "poste": "Poste",
+      "localisation": "Localisation"
+    }
+  }
+}

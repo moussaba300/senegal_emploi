@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-candidature-heading"
+        data-cy="CandidatureCreateUpdateHeading"
+        jhiTranslate="senegalEmploiApp.candidature.home.createOrEditLabel"
+      >
+        Create or edit a Candidature
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="senegalEmploiApp.candidature.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_dateDepot" jhiTranslate="senegalEmploiApp.candidature.dateDepot">Date Depot</label>
+          <div class="d-flex">
+            <input
+              id="field_dateDepot"
+              data-cy="dateDepot"
+              type="datetime-local"
+              class="form-control"
+              name="dateDepot"
+              formControlName="dateDepot"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_statut" jhiTranslate="senegalEmploiApp.candidature.statut">Statut</label>
+          <input type="text" class="form-control" name="statut" id="field_statut" data-cy="statut" formControlName="statut" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_offre" jhiTranslate="senegalEmploiApp.candidature.offre">Offre</label>
+          <select
+            class="form-control"
+            id="field_offre"
+            data-cy="offre"
+            name="offre"
+            formControlName="offre"
+            [compareWith]="compareOffreEmploi"
+          >
+            <option [ngValue]="null"></option>
+            @for (offreEmploiOption of offreEmploisSharedCollection; track $index) {
+              <option [ngValue]="offreEmploiOption">{{ offreEmploiOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_candidat" jhiTranslate="senegalEmploiApp.candidature.candidat">Candidat</label>
+          <select
+            class="form-control"
+            id="field_candidat"
+            data-cy="candidat"
+            name="candidat"
+            formControlName="candidat"
+            [compareWith]="compareCandidat"
+          >
+            <option [ngValue]="null"></option>
+            @for (candidatOption of candidatsSharedCollection; track $index) {
+              <option [ngValue]="candidatOption">{{ candidatOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

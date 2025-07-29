@@ -1,0 +1,3 @@
+org.springframework.test.context.ContextCustomizerFactory = \
+    senegal.chercher.emploi.config.\
+    SqlTestContainersSpringContextCustomizerFactory

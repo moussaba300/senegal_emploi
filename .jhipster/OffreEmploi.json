@@ -1,0 +1,57 @@
+{
+  "annotations": {
+    "changelogDate": "20250729164658"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "titre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "remuneration",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "datePublication",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "OffreEmploi",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "recruteur",
+      "relationshipName": "recruteur",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "typeContrat",
+      "relationshipName": "typeContrat",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "poste",
+      "relationshipName": "poste",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "localisation",
+      "relationshipName": "localisation",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
