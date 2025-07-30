@@ -2,6 +2,7 @@ package senegal.chercher.emploi.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -22,11 +23,16 @@ public class Recruteur implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "entreprise")
+    @NotNull
+    @Column(name = "entreprise", nullable = false)
     private String entreprise;
 
-    @Column(name = "secteur")
+    @NotNull
+    @Column(name = "secteur", nullable = false)
     private String secteur;
+
+    @Column(name = "logo_path")
+    private String logoPath;
 
     @JsonIgnoreProperties(value = { "candidat", "recruteur" }, allowSetters = true)
     @OneToOne(fetch = FetchType.LAZY)
@@ -74,6 +80,19 @@ public class Recruteur implements Serializable {
         this.secteur = secteur;
     }
 
+    public String getLogoPath() {
+        return this.logoPath;
+    }
+
+    public Recruteur logoPath(String logoPath) {
+        this.setLogoPath(logoPath);
+        return this;
+    }
+
+    public void setLogoPath(String logoPath) {
+        this.logoPath = logoPath;
+    }
+
     public Utilisateur getUtilisateur() {
         return this.utilisateur;
     }
@@ -113,6 +132,7 @@ public class Recruteur implements Serializable {
             "id=" + getId() +
             ", entreprise='" + getEntreprise() + "'" +
             ", secteur='" + getSecteur() + "'" +
+            ", logoPath='" + getLogoPath() + "'" +
             "}";
     }
 }

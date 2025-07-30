@@ -17,6 +17,8 @@ public class CandidatDTO implements Serializable {
 
     private String adresse;
 
+    private String photoPath;
+
     private UtilisateurDTO utilisateur;
 
     public Long getId() {
@@ -49,6 +51,14 @@ public class CandidatDTO implements Serializable {
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+
+    public String getPhotoPath() {
+        return photoPath;
+    }
+
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
     }
 
     public UtilisateurDTO getUtilisateur() {
@@ -88,6 +98,7 @@ public class CandidatDTO implements Serializable {
             ", cv='" + getCv() + "'" +
             ", telephone='" + getTelephone() + "'" +
             ", adresse='" + getAdresse() + "'" +
+            ", photoPath='" + getPhotoPath() + "'" +
             ", utilisateur=" + getUtilisateur() +
             "}";
     }

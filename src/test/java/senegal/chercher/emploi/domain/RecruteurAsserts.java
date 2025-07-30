@@ -48,7 +48,8 @@ public class RecruteurAsserts {
         assertThat(actual)
             .as("Verify Recruteur relevant properties")
             .satisfies(a -> assertThat(a.getEntreprise()).as("check entreprise").isEqualTo(expected.getEntreprise()))
-            .satisfies(a -> assertThat(a.getSecteur()).as("check secteur").isEqualTo(expected.getSecteur()));
+            .satisfies(a -> assertThat(a.getSecteur()).as("check secteur").isEqualTo(expected.getSecteur()))
+            .satisfies(a -> assertThat(a.getLogoPath()).as("check logoPath").isEqualTo(expected.getLogoPath()));
     }
 
     /**

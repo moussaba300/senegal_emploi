@@ -22,6 +22,10 @@
     {
       "fieldName": "datePublication",
       "fieldType": "Instant"
+    },
+    {
+      "fieldName": "imagePath",
+      "fieldType": "String"
     }
   ],
   "name": "OffreEmploi",

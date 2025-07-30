@@ -22,6 +22,7 @@ describe('Recruteur Form Service', () => {
             id: expect.any(Object),
             entreprise: expect.any(Object),
             secteur: expect.any(Object),
+            logoPath: expect.any(Object),
             utilisateur: expect.any(Object),
           }),
         );
@@ -35,6 +36,7 @@ describe('Recruteur Form Service', () => {
             id: expect.any(Object),
             entreprise: expect.any(Object),
             secteur: expect.any(Object),
+            logoPath: expect.any(Object),
             utilisateur: expect.any(Object),
           }),
         );

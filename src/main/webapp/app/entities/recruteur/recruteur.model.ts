@@ -4,6 +4,7 @@ export interface IRecruteur {
   id: number;
   entreprise?: string | null;
   secteur?: string | null;
+  logoPath?: string | null;
   utilisateur?: Pick<IUtilisateur, 'id'> | null;
 }
 

@@ -23,6 +23,7 @@ describe('Candidat Form Service', () => {
             cv: expect.any(Object),
             telephone: expect.any(Object),
             adresse: expect.any(Object),
+            photoPath: expect.any(Object),
             utilisateur: expect.any(Object),
           }),
         );
@@ -37,6 +38,7 @@ describe('Candidat Form Service', () => {
             cv: expect.any(Object),
             telephone: expect.any(Object),
             adresse: expect.any(Object),
+            photoPath: expect.any(Object),
             utilisateur: expect.any(Object),
           }),
         );

@@ -7,10 +7,16 @@
   "fields": [
     {
       "fieldName": "entreprise",
-      "fieldType": "String"
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "secteur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "logoPath",
       "fieldType": "String"
     }
   ],

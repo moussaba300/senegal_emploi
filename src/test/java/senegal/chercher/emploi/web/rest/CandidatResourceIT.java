@@ -43,6 +43,9 @@ class CandidatResourceIT {
     private static final String DEFAULT_ADRESSE = "AAAAAAAAAA";
     private static final String UPDATED_ADRESSE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_PHOTO_PATH = "AAAAAAAAAA";
+    private static final String UPDATED_PHOTO_PATH = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/candidats";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -75,7 +78,7 @@ class CandidatResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Candidat createEntity() {
-        return new Candidat().cv(DEFAULT_CV).telephone(DEFAULT_TELEPHONE).adresse(DEFAULT_ADRESSE);
+        return new Candidat().cv(DEFAULT_CV).telephone(DEFAULT_TELEPHONE).adresse(DEFAULT_ADRESSE).photoPath(DEFAULT_PHOTO_PATH);
     }
 
     /**
@@ -85,7 +88,7 @@ class CandidatResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Candidat createUpdatedEntity() {
-        return new Candidat().cv(UPDATED_CV).telephone(UPDATED_TELEPHONE).adresse(UPDATED_ADRESSE);
+        return new Candidat().cv(UPDATED_CV).telephone(UPDATED_TELEPHONE).adresse(UPDATED_ADRESSE).photoPath(UPDATED_PHOTO_PATH);
     }
 
     @BeforeEach
@@ -157,7 +160,8 @@ class CandidatResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(candidat.getId().intValue())))
             .andExpect(jsonPath("$.[*].cv").value(hasItem(DEFAULT_CV)))
             .andExpect(jsonPath("$.[*].telephone").value(hasItem(DEFAULT_TELEPHONE)))
-            .andExpect(jsonPath("$.[*].adresse").value(hasItem(DEFAULT_ADRESSE)));
+            .andExpect(jsonPath("$.[*].adresse").value(hasItem(DEFAULT_ADRESSE)))
+            .andExpect(jsonPath("$.[*].photoPath").value(hasItem(DEFAULT_PHOTO_PATH)));
     }
 
     @Test
@@ -174,7 +178,8 @@ class CandidatResourceIT {
             .andExpect(jsonPath("$.id").value(candidat.getId().intValue()))
             .andExpect(jsonPath("$.cv").value(DEFAULT_CV))
             .andExpect(jsonPath("$.telephone").value(DEFAULT_TELEPHONE))
-            .andExpect(jsonPath("$.adresse").value(DEFAULT_ADRESSE));
+            .andExpect(jsonPath("$.adresse").value(DEFAULT_ADRESSE))
+            .andExpect(jsonPath("$.photoPath").value(DEFAULT_PHOTO_PATH));
     }
 
     @Test
@@ -196,7 +201,7 @@ class CandidatResourceIT {
         Candidat updatedCandidat = candidatRepository.findById(candidat.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedCandidat are not directly saved in db
         em.detach(updatedCandidat);
-        updatedCandidat.cv(UPDATED_CV).telephone(UPDATED_TELEPHONE).adresse(UPDATED_ADRESSE);
+        updatedCandidat.cv(UPDATED_CV).telephone(UPDATED_TELEPHONE).adresse(UPDATED_ADRESSE).photoPath(UPDATED_PHOTO_PATH);
         CandidatDTO candidatDTO = candidatMapper.toDto(updatedCandidat);
 
         restCandidatMockMvc
@@ -312,7 +317,7 @@ class CandidatResourceIT {
         Candidat partialUpdatedCandidat = new Candidat();
         partialUpdatedCandidat.setId(candidat.getId());
 
-        partialUpdatedCandidat.cv(UPDATED_CV).telephone(UPDATED_TELEPHONE).adresse(UPDATED_ADRESSE);
+        partialUpdatedCandidat.cv(UPDATED_CV).telephone(UPDATED_TELEPHONE).adresse(UPDATED_ADRESSE).photoPath(UPDATED_PHOTO_PATH);
 
         restCandidatMockMvc
             .perform(

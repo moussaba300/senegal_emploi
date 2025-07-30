@@ -23,6 +23,8 @@ public class OffreEmploiDTO implements Serializable {
 
     private Instant datePublication;
 
+    private String imagePath;
+
     private RecruteurDTO recruteur;
 
     private TypeContratDTO typeContrat;
@@ -69,6 +71,14 @@ public class OffreEmploiDTO implements Serializable {
 
     public void setDatePublication(Instant datePublication) {
         this.datePublication = datePublication;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public RecruteurDTO getRecruteur() {
@@ -133,6 +143,7 @@ public class OffreEmploiDTO implements Serializable {
             ", description='" + getDescription() + "'" +
             ", remuneration=" + getRemuneration() +
             ", datePublication='" + getDatePublication() + "'" +
+            ", imagePath='" + getImagePath() + "'" +
             ", recruteur=" + getRecruteur() +
             ", typeContrat=" + getTypeContrat() +
             ", poste=" + getPoste() +

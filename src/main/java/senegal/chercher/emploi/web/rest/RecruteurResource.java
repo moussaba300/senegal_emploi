@@ -1,5 +1,7 @@
 package senegal.chercher.emploi.web.rest;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -53,7 +55,7 @@ public class RecruteurResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("")
-    public ResponseEntity<RecruteurDTO> createRecruteur(@RequestBody RecruteurDTO recruteurDTO) throws URISyntaxException {
+    public ResponseEntity<RecruteurDTO> createRecruteur(@Valid @RequestBody RecruteurDTO recruteurDTO) throws URISyntaxException {
         LOG.debug("REST request to save Recruteur : {}", recruteurDTO);
         if (recruteurDTO.getId() != null) {
             throw new BadRequestAlertException("A new recruteur cannot already have an ID", ENTITY_NAME, "idexists");
@@ -77,7 +79,7 @@ public class RecruteurResource {
     @PutMapping("/{id}")
     public ResponseEntity<RecruteurDTO> updateRecruteur(
         @PathVariable(value = "id", required = false) final Long id,
-        @RequestBody RecruteurDTO recruteurDTO
+        @Valid @RequestBody RecruteurDTO recruteurDTO
     ) throws URISyntaxException {
         LOG.debug("REST request to update Recruteur : {}, {}", id, recruteurDTO);
         if (recruteurDTO.getId() == null) {
@@ -111,7 +113,7 @@ public class RecruteurResource {
     @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<RecruteurDTO> partialUpdateRecruteur(
         @PathVariable(value = "id", required = false) final Long id,
-        @RequestBody RecruteurDTO recruteurDTO
+        @NotNull @RequestBody RecruteurDTO recruteurDTO
     ) throws URISyntaxException {
         LOG.debug("REST request to partial update Recruteur partially : {}, {}", id, recruteurDTO);
         if (recruteurDTO.getId() == null) {

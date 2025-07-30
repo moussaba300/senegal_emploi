@@ -1,5 +1,6 @@
 package senegal.chercher.emploi.service.dto;
 
+import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -11,9 +12,13 @@ public class RecruteurDTO implements Serializable {
 
     private Long id;
 
+    @NotNull
     private String entreprise;
 
+    @NotNull
     private String secteur;
+
+    private String logoPath;
 
     private UtilisateurDTO utilisateur;
 
@@ -39,6 +44,14 @@ public class RecruteurDTO implements Serializable {
 
     public void setSecteur(String secteur) {
         this.secteur = secteur;
+    }
+
+    public String getLogoPath() {
+        return logoPath;
+    }
+
+    public void setLogoPath(String logoPath) {
+        this.logoPath = logoPath;
     }
 
     public UtilisateurDTO getUtilisateur() {
@@ -77,6 +90,7 @@ public class RecruteurDTO implements Serializable {
             "id=" + getId() +
             ", entreprise='" + getEntreprise() + "'" +
             ", secteur='" + getSecteur() + "'" +
+            ", logoPath='" + getLogoPath() + "'" +
             ", utilisateur=" + getUtilisateur() +
             "}";
     }

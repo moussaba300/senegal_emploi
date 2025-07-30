@@ -9,11 +9,11 @@ export const sampleWithRequiredData: IOffreEmploi = {
 };
 
 export const sampleWithPartialData: IOffreEmploi = {
-  id: 23706,
-  titre: 'amnesty pleasure off',
-  description: 'into',
-  remuneration: 6957.41,
-  datePublication: dayjs('2025-07-29T07:37'),
+  id: 28713,
+  titre: 'during',
+  description: 'interchange',
+  remuneration: 767.13,
+  datePublication: dayjs('2025-07-28T23:08'),
 };
 
 export const sampleWithFullData: IOffreEmploi = {
@@ -22,6 +22,7 @@ export const sampleWithFullData: IOffreEmploi = {
   description: 'intrepid for',
   remuneration: 16229.21,
   datePublication: dayjs('2025-07-29T07:46'),
+  imagePath: 'uh-huh',
 };
 
 export const sampleWithNewData: NewOffreEmploi = {

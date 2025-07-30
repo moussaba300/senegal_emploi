@@ -5,10 +5,10 @@ export const sampleWithRequiredData: ICandidat = {
 };
 
 export const sampleWithPartialData: ICandidat = {
-  id: 29576,
-  cv: 'ugh woot',
-  telephone: '1-300-276-5498 x6637',
-  adresse: 'submitter yum neat',
+  id: 11540,
+  cv: 'corral quirkily aw',
+  telephone: '986.637.8232 x791',
+  adresse: 'yum neat enormously',
 };
 
 export const sampleWithFullData: ICandidat = {
@@ -16,6 +16,7 @@ export const sampleWithFullData: ICandidat = {
   cv: 'nor oddly because',
   telephone: '1-362-624-3391 x967',
   adresse: 'how phew airbrush',
+  photoPath: 'wasteful mean',
 };
 
 export const sampleWithNewData: NewCandidat = {

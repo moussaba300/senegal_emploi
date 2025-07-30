@@ -61,6 +61,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="photoPath">
+              <div class="d-flex">
+                <span jhiTranslate="senegalEmploiApp.candidat.photoPath">Photo Path</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="utilisateur.id">
               <div class="d-flex">
                 <span jhiTranslate="senegalEmploiApp.candidat.utilisateur">Utilisateur</span>
@@ -79,6 +86,7 @@
               <td>{{ candidat.cv }}</td>
               <td>{{ candidat.telephone }}</td>
               <td>{{ candidat.adresse }}</td>
+              <td>{{ candidat.photoPath }}</td>
               <td>
                 @if (candidat.utilisateur) {
                   <div>

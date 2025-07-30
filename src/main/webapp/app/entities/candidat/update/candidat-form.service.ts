@@ -21,6 +21,7 @@ type CandidatFormGroupContent = {
   cv: FormControl<ICandidat['cv']>;
   telephone: FormControl<ICandidat['telephone']>;
   adresse: FormControl<ICandidat['adresse']>;
+  photoPath: FormControl<ICandidat['photoPath']>;
   utilisateur: FormControl<ICandidat['utilisateur']>;
 };
 
@@ -44,6 +45,7 @@ export class CandidatFormService {
       cv: new FormControl(candidatRawValue.cv),
       telephone: new FormControl(candidatRawValue.telephone),
       adresse: new FormControl(candidatRawValue.adresse),
+      photoPath: new FormControl(candidatRawValue.photoPath),
       utilisateur: new FormControl(candidatRawValue.utilisateur),
     });
   }

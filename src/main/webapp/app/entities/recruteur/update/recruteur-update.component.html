@@ -19,6 +19,7 @@
           </div>
         }
 
+        @let entrepriseRef = editForm.get('entreprise')!;
         <div class="mb-3">
           <label class="form-label" for="field_entreprise" jhiTranslate="senegalEmploiApp.recruteur.entreprise">Entreprise</label>
           <input
@@ -29,11 +30,31 @@
             data-cy="entreprise"
             formControlName="entreprise"
           />
+          @if (entrepriseRef.invalid && (entrepriseRef.dirty || entrepriseRef.touched)) {
+            <div>
+              @if (editForm.get('entreprise')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
         </div>
 
+        @let secteurRef = editForm.get('secteur')!;
         <div class="mb-3">
           <label class="form-label" for="field_secteur" jhiTranslate="senegalEmploiApp.recruteur.secteur">Secteur</label>
           <input type="text" class="form-control" name="secteur" id="field_secteur" data-cy="secteur" formControlName="secteur" />
+          @if (secteurRef.invalid && (secteurRef.dirty || secteurRef.touched)) {
+            <div>
+              @if (editForm.get('secteur')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_logoPath" jhiTranslate="senegalEmploiApp.recruteur.logoPath">Logo Path</label>
+          <input type="text" class="form-control" name="logoPath" id="field_logoPath" data-cy="logoPath" formControlName="logoPath" />
         </div>
 
         <div class="mb-3">

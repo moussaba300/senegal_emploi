@@ -22,6 +22,7 @@
       "description": "Description",
       "remuneration": "Remuneration",
       "datePublication": "Date Publication",
+      "imagePath": "Image Path",
       "recruteur": "Recruteur",
       "typeContrat": "Type Contrat",
       "poste": "Poste",

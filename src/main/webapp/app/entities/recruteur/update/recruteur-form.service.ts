@@ -20,6 +20,7 @@ type RecruteurFormGroupContent = {
   id: FormControl<IRecruteur['id'] | NewRecruteur['id']>;
   entreprise: FormControl<IRecruteur['entreprise']>;
   secteur: FormControl<IRecruteur['secteur']>;
+  logoPath: FormControl<IRecruteur['logoPath']>;
   utilisateur: FormControl<IRecruteur['utilisateur']>;
 };
 
@@ -40,8 +41,13 @@ export class RecruteurFormService {
           validators: [Validators.required],
         },
       ),
-      entreprise: new FormControl(recruteurRawValue.entreprise),
-      secteur: new FormControl(recruteurRawValue.secteur),
+      entreprise: new FormControl(recruteurRawValue.entreprise, {
+        validators: [Validators.required],
+      }),
+      secteur: new FormControl(recruteurRawValue.secteur, {
+        validators: [Validators.required],
+      }),
+      logoPath: new FormControl(recruteurRawValue.logoPath),
       utilisateur: new FormControl(recruteurRawValue.utilisateur),
     });
   }

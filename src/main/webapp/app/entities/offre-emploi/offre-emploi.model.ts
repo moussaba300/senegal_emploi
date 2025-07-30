@@ -10,6 +10,7 @@ export interface IOffreEmploi {
   description?: string | null;
   remuneration?: number | null;
   datePublication?: dayjs.Dayjs | null;
+  imagePath?: string | null;
   recruteur?: Pick<IRecruteur, 'id'> | null;
   typeContrat?: Pick<ITypeContrat, 'id'> | null;
   poste?: Pick<IPoste, 'id'> | null;

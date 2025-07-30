@@ -49,7 +49,8 @@ public class CandidatAsserts {
             .as("Verify Candidat relevant properties")
             .satisfies(a -> assertThat(a.getCv()).as("check cv").isEqualTo(expected.getCv()))
             .satisfies(a -> assertThat(a.getTelephone()).as("check telephone").isEqualTo(expected.getTelephone()))
-            .satisfies(a -> assertThat(a.getAdresse()).as("check adresse").isEqualTo(expected.getAdresse()));
+            .satisfies(a -> assertThat(a.getAdresse()).as("check adresse").isEqualTo(expected.getAdresse()))
+            .satisfies(a -> assertThat(a.getPhotoPath()).as("check photoPath").isEqualTo(expected.getPhotoPath()));
     }
 
     /**

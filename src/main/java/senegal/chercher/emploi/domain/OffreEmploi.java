@@ -38,6 +38,9 @@ public class OffreEmploi implements Serializable {
     @Column(name = "date_publication")
     private Instant datePublication;
 
+    @Column(name = "image_path")
+    private String imagePath;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "utilisateur" }, allowSetters = true)
     private Recruteur recruteur;
@@ -116,6 +119,19 @@ public class OffreEmploi implements Serializable {
 
     public void setDatePublication(Instant datePublication) {
         this.datePublication = datePublication;
+    }
+
+    public String getImagePath() {
+        return this.imagePath;
+    }
+
+    public OffreEmploi imagePath(String imagePath) {
+        this.setImagePath(imagePath);
+        return this;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public Recruteur getRecruteur() {
@@ -198,6 +214,7 @@ public class OffreEmploi implements Serializable {
             ", description='" + getDescription() + "'" +
             ", remuneration=" + getRemuneration() +
             ", datePublication='" + getDatePublication() + "'" +
+            ", imagePath='" + getImagePath() + "'" +
             "}";
     }
 }

@@ -48,6 +48,9 @@ class OffreEmploiResourceIT {
     private static final Instant DEFAULT_DATE_PUBLICATION = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_DATE_PUBLICATION = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
+    private static final String DEFAULT_IMAGE_PATH = "AAAAAAAAAA";
+    private static final String UPDATED_IMAGE_PATH = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/offre-emplois";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -84,7 +87,8 @@ class OffreEmploiResourceIT {
             .titre(DEFAULT_TITRE)
             .description(DEFAULT_DESCRIPTION)
             .remuneration(DEFAULT_REMUNERATION)
-            .datePublication(DEFAULT_DATE_PUBLICATION);
+            .datePublication(DEFAULT_DATE_PUBLICATION)
+            .imagePath(DEFAULT_IMAGE_PATH);
     }
 
     /**
@@ -98,7 +102,8 @@ class OffreEmploiResourceIT {
             .titre(UPDATED_TITRE)
             .description(UPDATED_DESCRIPTION)
             .remuneration(UPDATED_REMUNERATION)
-            .datePublication(UPDATED_DATE_PUBLICATION);
+            .datePublication(UPDATED_DATE_PUBLICATION)
+            .imagePath(UPDATED_IMAGE_PATH);
     }
 
     @BeforeEach
@@ -205,7 +210,8 @@ class OffreEmploiResourceIT {
             .andExpect(jsonPath("$.[*].titre").value(hasItem(DEFAULT_TITRE)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].remuneration").value(hasItem(DEFAULT_REMUNERATION)))
-            .andExpect(jsonPath("$.[*].datePublication").value(hasItem(DEFAULT_DATE_PUBLICATION.toString())));
+            .andExpect(jsonPath("$.[*].datePublication").value(hasItem(DEFAULT_DATE_PUBLICATION.toString())))
+            .andExpect(jsonPath("$.[*].imagePath").value(hasItem(DEFAULT_IMAGE_PATH)));
     }
 
     @Test
@@ -223,7 +229,8 @@ class OffreEmploiResourceIT {
             .andExpect(jsonPath("$.titre").value(DEFAULT_TITRE))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
             .andExpect(jsonPath("$.remuneration").value(DEFAULT_REMUNERATION))
-            .andExpect(jsonPath("$.datePublication").value(DEFAULT_DATE_PUBLICATION.toString()));
+            .andExpect(jsonPath("$.datePublication").value(DEFAULT_DATE_PUBLICATION.toString()))
+            .andExpect(jsonPath("$.imagePath").value(DEFAULT_IMAGE_PATH));
     }
 
     @Test
@@ -249,7 +256,8 @@ class OffreEmploiResourceIT {
             .titre(UPDATED_TITRE)
             .description(UPDATED_DESCRIPTION)
             .remuneration(UPDATED_REMUNERATION)
-            .datePublication(UPDATED_DATE_PUBLICATION);
+            .datePublication(UPDATED_DATE_PUBLICATION)
+            .imagePath(UPDATED_IMAGE_PATH);
         OffreEmploiDTO offreEmploiDTO = offreEmploiMapper.toDto(updatedOffreEmploi);
 
         restOffreEmploiMockMvc
@@ -374,7 +382,8 @@ class OffreEmploiResourceIT {
             .titre(UPDATED_TITRE)
             .description(UPDATED_DESCRIPTION)
             .remuneration(UPDATED_REMUNERATION)
-            .datePublication(UPDATED_DATE_PUBLICATION);
+            .datePublication(UPDATED_DATE_PUBLICATION)
+            .imagePath(UPDATED_IMAGE_PATH);
 
         restOffreEmploiMockMvc
             .perform(

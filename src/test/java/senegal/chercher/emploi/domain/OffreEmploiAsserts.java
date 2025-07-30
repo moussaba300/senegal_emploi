@@ -50,7 +50,8 @@ public class OffreEmploiAsserts {
             .satisfies(a -> assertThat(a.getTitre()).as("check titre").isEqualTo(expected.getTitre()))
             .satisfies(a -> assertThat(a.getDescription()).as("check description").isEqualTo(expected.getDescription()))
             .satisfies(a -> assertThat(a.getRemuneration()).as("check remuneration").isEqualTo(expected.getRemuneration()))
-            .satisfies(a -> assertThat(a.getDatePublication()).as("check datePublication").isEqualTo(expected.getDatePublication()));
+            .satisfies(a -> assertThat(a.getDatePublication()).as("check datePublication").isEqualTo(expected.getDatePublication()))
+            .satisfies(a -> assertThat(a.getImagePath()).as("check imagePath").isEqualTo(expected.getImagePath()));
     }
 
     /**

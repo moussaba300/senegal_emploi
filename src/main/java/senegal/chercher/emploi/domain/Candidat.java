@@ -31,6 +31,9 @@ public class Candidat implements Serializable {
     @Column(name = "adresse")
     private String adresse;
 
+    @Column(name = "photo_path")
+    private String photoPath;
+
     @JsonIgnoreProperties(value = { "candidat", "recruteur" }, allowSetters = true)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(unique = true)
@@ -90,6 +93,19 @@ public class Candidat implements Serializable {
         this.adresse = adresse;
     }
 
+    public String getPhotoPath() {
+        return this.photoPath;
+    }
+
+    public Candidat photoPath(String photoPath) {
+        this.setPhotoPath(photoPath);
+        return this;
+    }
+
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
+    }
+
     public Utilisateur getUtilisateur() {
         return this.utilisateur;
     }
@@ -130,6 +146,7 @@ public class Candidat implements Serializable {
             ", cv='" + getCv() + "'" +
             ", telephone='" + getTelephone() + "'" +
             ", adresse='" + getAdresse() + "'" +
+            ", photoPath='" + getPhotoPath() + "'" +
             "}";
     }
 }

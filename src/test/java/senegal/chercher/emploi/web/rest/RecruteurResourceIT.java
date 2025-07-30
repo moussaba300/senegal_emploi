@@ -40,6 +40,9 @@ class RecruteurResourceIT {
     private static final String DEFAULT_SECTEUR = "AAAAAAAAAA";
     private static final String UPDATED_SECTEUR = "BBBBBBBBBB";
 
+    private static final String DEFAULT_LOGO_PATH = "AAAAAAAAAA";
+    private static final String UPDATED_LOGO_PATH = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/recruteurs";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -72,7 +75,7 @@ class RecruteurResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Recruteur createEntity() {
-        return new Recruteur().entreprise(DEFAULT_ENTREPRISE).secteur(DEFAULT_SECTEUR);
+        return new Recruteur().entreprise(DEFAULT_ENTREPRISE).secteur(DEFAULT_SECTEUR).logoPath(DEFAULT_LOGO_PATH);
     }
 
     /**
@@ -82,7 +85,7 @@ class RecruteurResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Recruteur createUpdatedEntity() {
-        return new Recruteur().entreprise(UPDATED_ENTREPRISE).secteur(UPDATED_SECTEUR);
+        return new Recruteur().entreprise(UPDATED_ENTREPRISE).secteur(UPDATED_SECTEUR).logoPath(UPDATED_LOGO_PATH);
     }
 
     @BeforeEach
@@ -142,6 +145,40 @@ class RecruteurResourceIT {
 
     @Test
     @Transactional
+    void checkEntrepriseIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        recruteur.setEntreprise(null);
+
+        // Create the Recruteur, which fails.
+        RecruteurDTO recruteurDTO = recruteurMapper.toDto(recruteur);
+
+        restRecruteurMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(recruteurDTO)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkSecteurIsRequired() throws Exception {
+        long databaseSizeBeforeTest = getRepositoryCount();
+        // set the field null
+        recruteur.setSecteur(null);
+
+        // Create the Recruteur, which fails.
+        RecruteurDTO recruteurDTO = recruteurMapper.toDto(recruteur);
+
+        restRecruteurMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(recruteurDTO)))
+            .andExpect(status().isBadRequest());
+
+        assertSameRepositoryCount(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void getAllRecruteurs() throws Exception {
         // Initialize the database
         insertedRecruteur = recruteurRepository.saveAndFlush(recruteur);
@@ -153,7 +190,8 @@ class RecruteurResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(recruteur.getId().intValue())))
             .andExpect(jsonPath("$.[*].entreprise").value(hasItem(DEFAULT_ENTREPRISE)))
-            .andExpect(jsonPath("$.[*].secteur").value(hasItem(DEFAULT_SECTEUR)));
+            .andExpect(jsonPath("$.[*].secteur").value(hasItem(DEFAULT_SECTEUR)))
+            .andExpect(jsonPath("$.[*].logoPath").value(hasItem(DEFAULT_LOGO_PATH)));
     }
 
     @Test
@@ -169,7 +207,8 @@ class RecruteurResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(recruteur.getId().intValue()))
             .andExpect(jsonPath("$.entreprise").value(DEFAULT_ENTREPRISE))
-            .andExpect(jsonPath("$.secteur").value(DEFAULT_SECTEUR));
+            .andExpect(jsonPath("$.secteur").value(DEFAULT_SECTEUR))
+            .andExpect(jsonPath("$.logoPath").value(DEFAULT_LOGO_PATH));
     }
 
     @Test
@@ -191,7 +230,7 @@ class RecruteurResourceIT {
         Recruteur updatedRecruteur = recruteurRepository.findById(recruteur.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedRecruteur are not directly saved in db
         em.detach(updatedRecruteur);
-        updatedRecruteur.entreprise(UPDATED_ENTREPRISE).secteur(UPDATED_SECTEUR);
+        updatedRecruteur.entreprise(UPDATED_ENTREPRISE).secteur(UPDATED_SECTEUR).logoPath(UPDATED_LOGO_PATH);
         RecruteurDTO recruteurDTO = recruteurMapper.toDto(updatedRecruteur);
 
         restRecruteurMockMvc
@@ -281,7 +320,7 @@ class RecruteurResourceIT {
         Recruteur partialUpdatedRecruteur = new Recruteur();
         partialUpdatedRecruteur.setId(recruteur.getId());
 
-        partialUpdatedRecruteur.entreprise(UPDATED_ENTREPRISE).secteur(UPDATED_SECTEUR);
+        partialUpdatedRecruteur.entreprise(UPDATED_ENTREPRISE).secteur(UPDATED_SECTEUR).logoPath(UPDATED_LOGO_PATH);
 
         restRecruteurMockMvc
             .perform(
@@ -312,7 +351,7 @@ class RecruteurResourceIT {
         Recruteur partialUpdatedRecruteur = new Recruteur();
         partialUpdatedRecruteur.setId(recruteur.getId());
 
-        partialUpdatedRecruteur.entreprise(UPDATED_ENTREPRISE).secteur(UPDATED_SECTEUR);
+        partialUpdatedRecruteur.entreprise(UPDATED_ENTREPRISE).secteur(UPDATED_SECTEUR).logoPath(UPDATED_LOGO_PATH);
 
         restRecruteurMockMvc
             .perform(

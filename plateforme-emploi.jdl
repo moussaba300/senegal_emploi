@@ -1,5 +1,5 @@
 // ==========================================
-// JDL - Plateforme de Recherche d'Emploi
+// JDL - Plateforme de Recherche d'Emploi (v2)
 // ==========================================
 
 entity Utilisateur {
@@ -13,12 +13,14 @@ entity Utilisateur {
 entity Candidat {
   cv String,
   telephone String,
-  adresse String
+  adresse String,
+  photoPath String // Nouveau champ
 }
 
 entity Recruteur {
-  entreprise String,
-  secteur String
+  entreprise String required,
+  secteur String required,
+  logoPath String // Nouveau champ
 }
 
 entity TypeContrat {
@@ -38,7 +40,8 @@ entity OffreEmploi {
   titre String required,
   description String required,
   remuneration Double,
-  datePublication Instant
+  datePublication Instant,
+  imagePath String // Nouveau champ
 }
 
 entity Candidature {
@@ -51,7 +54,7 @@ entity Candidature {
 // =====================
 
 relationship OneToOne {
-  Candidat{utilisateur} to Utilisateur
+  Candidat{utilisateur} to Utilisateur,
   Recruteur{utilisateur} to Utilisateur
 }
 
@@ -65,7 +68,7 @@ relationship ManyToOne {
 }
 
 // =====================
-// DTO, Service, Pagination
+// Configurations
 // =====================
 dto * with mapstruct
 service all with serviceClass

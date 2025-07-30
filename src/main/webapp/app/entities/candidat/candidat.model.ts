@@ -5,6 +5,7 @@ export interface ICandidat {
   cv?: string | null;
   telephone?: string | null;
   adresse?: string | null;
+  photoPath?: string | null;
   utilisateur?: Pick<IUtilisateur, 'id'> | null;
 }
 

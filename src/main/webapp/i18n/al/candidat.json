@@ -21,6 +21,7 @@
       "cv": "Cv",
       "telephone": "Telephone",
       "adresse": "Adresse",
+      "photoPath": "Photo Path",
       "utilisateur": "Utilisateur"
     }
   }

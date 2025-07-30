@@ -35,6 +35,7 @@ type OffreEmploiFormGroupContent = {
   description: FormControl<OffreEmploiFormRawValue['description']>;
   remuneration: FormControl<OffreEmploiFormRawValue['remuneration']>;
   datePublication: FormControl<OffreEmploiFormRawValue['datePublication']>;
+  imagePath: FormControl<OffreEmploiFormRawValue['imagePath']>;
   recruteur: FormControl<OffreEmploiFormRawValue['recruteur']>;
   typeContrat: FormControl<OffreEmploiFormRawValue['typeContrat']>;
   poste: FormControl<OffreEmploiFormRawValue['poste']>;
@@ -66,6 +67,7 @@ export class OffreEmploiFormService {
       }),
       remuneration: new FormControl(offreEmploiRawValue.remuneration),
       datePublication: new FormControl(offreEmploiRawValue.datePublication),
+      imagePath: new FormControl(offreEmploiRawValue.imagePath),
       recruteur: new FormControl(offreEmploiRawValue.recruteur),
       typeContrat: new FormControl(offreEmploiRawValue.typeContrat),
       poste: new FormControl(offreEmploiRawValue.poste),

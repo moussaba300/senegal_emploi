@@ -54,6 +54,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="logoPath">
+              <div class="d-flex">
+                <span jhiTranslate="senegalEmploiApp.recruteur.logoPath">Logo Path</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="utilisateur.id">
               <div class="d-flex">
                 <span jhiTranslate="senegalEmploiApp.recruteur.utilisateur">Utilisateur</span>
@@ -71,6 +78,7 @@
               </td>
               <td>{{ recruteur.entreprise }}</td>
               <td>{{ recruteur.secteur }}</td>
+              <td>{{ recruteur.logoPath }}</td>
               <td>
                 @if (recruteur.utilisateur) {
                   <div>
